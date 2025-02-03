@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlinx-serialization")
+
 }
 
 android {
@@ -40,7 +42,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.2"
     }
     packaging {
         resources {
@@ -66,4 +68,28 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    val ktorVersion = "2.3.4"
+    val kotlinxSerializationVersion = "1.5.1"
+    // ktor network
+    implementation ("io.ktor:ktor-client-json:$ktorVersion")
+    implementation ("io.ktor:ktor-client-serialization:$ktorVersion")
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinxSerializationVersion")
+
+    implementation("io.ktor:ktor-client-cio:$ktorVersion")
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    implementation("io.ktor:ktor-client-android:$ktorVersion")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+    implementation("io.ktor:ktor-client-logging:$ktorVersion")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxSerializationVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxSerializationVersion")
+
+    // Glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    val lifecycle_version = "2.8.7"
+    // viewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
 }
