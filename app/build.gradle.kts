@@ -62,6 +62,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("com.google.android.datatransport:transport-runtime:4.0.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
@@ -93,4 +94,11 @@ dependencies {
     val lifecycle_version = "2.8.7"
     // viewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+
+    // 위치 권한
+    implementation ("com.google.accompanist:accompanist-permissions:0.31.0-alpha")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.1")
+
+
 }

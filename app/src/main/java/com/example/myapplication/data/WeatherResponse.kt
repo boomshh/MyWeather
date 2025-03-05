@@ -52,8 +52,9 @@ data class Clouds(
 
 @Serializable
 data class Sys(
-    val type : Int,
+    val type : Int? = null,
     val country: String,
-    val sunrised: Long,
-    val sunset: Long
-)
+    val sunrised: Boolean? =null,
+    val sunset: Long,
+    val sunrise: Long,
+    )

@@ -13,11 +13,21 @@ class WeatherRepoImpl(private val client: KtorClient) : WeatherRepo {
 
     override suspend fun getWeather(city: String ) : WeatherResponse {
 
-        return KtorClient.httpClient.get(url) {
+        return client.httpClient.get(url) {
             parameter("q", city)
             parameter("appid", apiKey)
             parameter("units", "metric") // 섭씨 온도
             parameter("lang", "kr") // 한국어
+        }.body()
+    }
+
+    override suspend fun getWeatherByCoordinates(lat: Double, lon: Double): WeatherResponse {
+        return client.httpClient.get(url) {
+            parameter("lat", lat)
+            parameter("lon", lon)
+            parameter("appid", apiKey)
+            parameter("units", "metric")
+            parameter("lang", "kr")
         }.body()
     }
 
